@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style> 
+    /* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #e3f2fd, #f9fbff);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2c3e50;
+}
+
+/* ===== Heading ===== */
+h1 {
+    margin-bottom: 25px;
+    color: #0d47a1;
+    font-size: 2.4rem;
+    letter-spacing: 1px;
+}
+
+/* ===== Form Card ===== */
+form {
+    background: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+/* ===== Inputs ===== */
+input {
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+input::placeholder {
+    color: #9e9e9e;
+}
+
+input:focus {
+    outline: none;
+    border-color: #1976d2;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+}
+
+/* ===== Submit Button ===== */
+button[type="submit"] {
+    margin-top: 20px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(25, 118, 210, 0.35);
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(25, 118, 210, 0.45);
+}
+
+/* ===== Dynamic Buttons (My Appointments) ===== */
+button {
+    background: #0d47a1;
+    color: #ffffff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1565c0;
+}
+
+/* ===== Appointment Card ===== */
+div {
+    white-space: pre-line;
+    margin-top: 20px;
+    background: #ffffff;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+    border-left: 6px solid #1976d2;
+}
+
+</style>
+<body>
+    <h1>Welcome to XYZ hoespital</h1>
+    <form>
+        <input type="text" placeholder="Enter your name" id="name">
+        <input type="number" placeholder="Enter your age" id="age">
+        <input type="text" placeholder="Enter your disease" id="disease">
+        <input type="text" placeholder="Enter your doctor name" id="doctor">
+        <input type="date" placeholder="Enter appointment date" id="appointmentDate">
+        <input type="time" placeholder="Enter appointment time" id="appointmentTime">
+        <input type="text" placeholder="Enter your symptoms" id="symptoms">
+    </form>
+    <button type="submit" onclick="submitForm()">Submit</button>
+    <script>
+        function submitForm() {
+            let name = document.getElementById('name').value;
+            let age = document.getElementById('age').value;
+            let disease = document.getElementById('disease').value;
+            let doctor = document.getElementById('doctor').value;
+            let appointmentDate = document.getElementById('appointmentDate').value;
+            let appointmentTime = document.getElementById('appointmentTime').value;
+            let symptoms = document.getElementById('symptoms').value;
+
+           let button = document.createElement('button');
+           button.innerText = "my appointments";
+           document.body.appendChild(button);
+           button.style.marginTop = "20px";
+           button.onclick = function() {
+               let div = document.createElement('div');
+               div.innerText =
+                   "Appointment Details:\n" +
+                   "Name: " + name + "\n" +
+                   "Age: " + age + "\n" +
+                   "Disease: " + disease + "\n" +
+                   "Doctor: " + doctor + "\n" +
+                   "Appointment Date: " + appointmentDate + "\n" +
+                   "Appointment Time: " + appointmentTime + "\n" +
+                   "Symptoms: " + symptoms
+               
+
+
+            document.body.appendChild(div);
+        }
+        }    </script>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="app.js"></script>
+</body>
+</html>
