@@ -48,11 +48,15 @@ async function signIn() {
   if (error) {
     setMessage(error.message)
     return
+  }else {
+  setMessage('Logged in successfully!')
+  if (window.location.pathname.endsWith('index.html')) {
+    window.location.href = 'dashboard.html'
   }
 
-  setMessage('Logged in successfully!')
- let newpage=window.location.href.replace("index.html","dashboard.html");
- window.location.href=newpage;
+
+
+}
 }
 async function signOut() {
   const { error } = await client.auth.signOut()

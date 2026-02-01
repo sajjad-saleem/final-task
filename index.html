@@ -39,19 +39,20 @@ h2 {
   color: #546e7a;
   margin-bottom: 30px;
 }
-
-/* ===== Auth Card ===== */
+/* boder of the sign part */
+/* ===== Form Card ===== */
 form {
   background: #ffffff;
   width: 100%;
-  max-width: 420px;
-  padding: 35px;
-  border-radius: 18px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
 }
+
 
 /* ===== Inputs ===== */
 input {
@@ -81,6 +82,8 @@ button {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
 }
 
 /* Sign Up */
@@ -119,17 +122,67 @@ button:hover {
   background: #ffffff;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
+#signOutBtn {
+    margin-top: 10px;
+    padding: 13px;
+    border-radius: 30px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background: #eceff1;
+    color: #37474f;
+}
+#signOutBtn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+#signInBtn {
+    margin-top: 10px;
+    padding: 13px;
+    border-radius: 30px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background: #0d47a1;
+    color: #ffffff;
+}
+#signInBtn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+#signUpBtn {
+    margin-top: 10px;
+    padding: 13px;
+    border-radius: 30px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    color: #ffffff;
+}
+#signUpBtn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
   </style>
   <h1>Welcome to XYZ Hospital</h1>
   <h2>Please login or signup to continue</h2>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <form id="auth-form">
     <input type="email" id="email" placeholder="Email" required />
     <input type="password" id="password" placeholder="Password" required />
-    <button onclick="signUp()">Sign Up</button>
-    <button onclick="signIn()">Log In</button>
-    <button onclick="signOut()">Log Out</button>
-  </form>
+
+  <button onclick="signUp()" id="signUpBtn">Sign Up</button>
+    <button onclick="signIn()" id="signInBtn">Log In</button>
+    <button onclick="signOut()" id="signOutBtn">Log Out</button>
   <div id="message"></div>
   <script src="app.js"></script>
 </body>
